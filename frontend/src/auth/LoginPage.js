@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { backendurl } from '../ServicePage';
 
 function LoginPage() {
     const appNavigation = useNavigate();
@@ -24,7 +25,7 @@ function LoginPage() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:3500/login", userData);
+            const response = await axios.post(`${backendurl}/login`, userData);
             toast.success(response.data.message);
             appNavigation("/home");
         } catch (error) {

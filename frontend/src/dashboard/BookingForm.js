@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { backendurl } from '../ServicePage';
 
 function BookingForm() {
     const [locations, setLocations] = useState([]);
@@ -9,7 +10,7 @@ function BookingForm() {
 
     const getLocationData = async () => {
         try {
-            const response = await axios.get("http://localhost:3500/location");
+            const response = await axios.get(`${backendurl}/location`);
             setLocations(response.data); // Update the state with fetched data
         } catch (error) {
             console.log(error);

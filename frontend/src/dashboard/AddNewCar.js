@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Fragment, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { backendurl } from '../ServicePage';
 
 function AddNewCar() {
 
@@ -26,7 +27,7 @@ function AddNewCar() {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("http://localhost:3500/addnewcar", carData);
+            const response = await axios.post(`${backendurl}/addnewcar`, carData);
             toast.success(response.data.message);
         } catch (error) {
             toast.error(error.response.data.message);

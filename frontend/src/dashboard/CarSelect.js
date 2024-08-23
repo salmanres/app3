@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { backendurl } from '../ServicePage';
 
 function CarSelect() {
     const [carData, setCarData] = useState([]);
@@ -8,7 +9,7 @@ function CarSelect() {
 
     const getCarData = async () => {
         try {
-            const response = await axios.get("http://localhost:3500/availablecars");
+            const response = await axios.get(`${backendurl}/availablecars`);
             setCarData(response.data);
         } catch (error) {
             console.log(error);

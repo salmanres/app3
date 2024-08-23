@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { backendurl } from '../ServicePage';
 
 export default function RegisterPage() {
 
@@ -25,7 +26,7 @@ export default function RegisterPage() {
     const handleSubmit = async () => {
         if (userData.password === userData.confirmpassword) {
             try {
-                const response = await axios.post("http://localhost:3500/register", userData);
+                const response = await axios.post(`${backendurl}/register`, userData);
                 toast.success(response.data.message);
             } catch (error) {
                 toast.error(error.response.data.message);
