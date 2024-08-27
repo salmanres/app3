@@ -59,7 +59,7 @@ function LoginPage() {
                                             <label className='mt-2 check-label'><input type='checkbox' className='checkbox ' name='rememberme' /> Remember me</label>
                                         </div>
                                     </div>
-                                    <button type='button' className='btn btn-warning p-2 w-100 button-1 mt-2' onClick={handleLogin} disabled={loading}>
+                                    <button type='button' className='btn btn-warning p-2 w-100 button-1 shadow mt-2' onClick={handleLogin} disabled={loading}>
                                         {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "LOGIN"}
                                     </button>
                                 </form>

@@ -20,10 +20,9 @@ function LandingPage() {
           <div className='col-lg-4 col-md-5 col-sm-6 col-10 '>
 
             <BookingForm />
-
-            <hr className='h-row' />
-            <Link to="#" className='btn btn-warning p-2 w-100 button-1'>BOOK COMPLETE CAR</Link>
-            <hr className='h-row' />
+            {/* <hr className='h-row' /> */}
+            {/* <Link to="#" className='btn btn-warning p-2 w-100 button-1 shadow'>Personal Booking</Link> */}
+            {/* <hr className='h-row' />
             <div className='row'>
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between'>
                 <div className='button-2'>
@@ -58,7 +57,7 @@ function LandingPage() {
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 text-center'>
                 <label className='disclaimer'><b>Note : </b> All routes are fixed. Choose pickup and drop locations according route list !</label>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

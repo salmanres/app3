@@ -14,6 +14,9 @@ body, html {
     top: 0;
     z-index: 1000;
     width: 100%;
+    color: white;
+    font-size: 40px;
+    
 }
 .main-container
 {
@@ -101,11 +104,11 @@ body, html {
     height: 17px !important;
     width: 17px !important;
     vertical-align:middle;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 .check-label
 {
-    font-size: 18px;
+    font-size: 17px;
     margin-top: -10px;
 }
 .h-row

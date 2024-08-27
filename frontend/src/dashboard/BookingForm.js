@@ -26,6 +26,11 @@ function BookingForm() {
             <div className='container-fluid g-0'>
                 <div className='row'>
                     <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
+                        <div className='row'>
+                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-4 mt-2'>
+                                <h1><b> Select Pickup & Drop Location</b></h1>
+                            </div>
+                        </div>
                         <form>
                             <input
                                 className='form-control p-2 mb-2 input-box'
@@ -61,7 +66,7 @@ function BookingForm() {
                                     <input type='date' className='form-control p-2 input-box' />
                                 </div>
                             </div>
-                            <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1'>CONTINUE TO SELECT CAR</Link>
+                            <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1 shadow '>CONTINUE</Link>
                         </form>
                     </div>
                 </div>

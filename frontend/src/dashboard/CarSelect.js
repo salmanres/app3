@@ -25,12 +25,17 @@ function CarSelect() {
             <div className='container-fluid g-0'>
                 <div className='row mt-5 justify-content-center'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
+                    <div className='row'>
+                    <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 '>
+                        <h1><b> Select Your Ride</b></h1>
+                    </div>
+                </div>
                         {carData.length > 0 ? (
                             carData.map((data) => (
                                 <div key={data.registration}>
-                                    <Link to="#" className='btn btn-outline-warning w-100 mb-2 cardataview'>
-                                        <b>{data.model}</b><br/>
-                                        Departure : {data.departuretime} <br/>
+                                    <Link to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2'>
+                                        <b>{data.model}</b><br />
+                                        Departure : {data.departuretime} <br />
                                         <b>FARE : {fare}/-</b>
                                     </Link>
                                 </div>
