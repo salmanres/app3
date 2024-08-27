@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <Fragment>
       <div className='navbar'>
-        sani
+        --------------
       </div>
     </Fragment>
   )

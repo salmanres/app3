@@ -17,7 +17,7 @@ function LandingPage() {
     <Fragment>
       <div className='container-fluid'>
         <div className='row justify-content-center main-container'>
-          <div className='col-lg-4 col-md-5 col-sm-6 col-11 '>
+          <div className='col-lg-4 col-md-5 col-sm-6 col-10 '>
 
             <BookingForm />
 
