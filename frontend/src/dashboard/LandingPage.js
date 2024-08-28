@@ -9,9 +9,13 @@ import Navbar from './shared/Navbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import BookingForm from './BookingForm';
+import { useSelector } from 'react-redux';
 
 
 function LandingPage() {
+
+  const username = useSelector((state)=>state.ticket.username);
+  console.log(username);
 
   return (
     <Fragment>
@@ -20,6 +24,8 @@ function LandingPage() {
           <div className='col-lg-4 col-md-5 col-sm-6 col-10 '>
 
             <BookingForm />
+
+            <h3>welcome : {username}</h3>
             {/* <hr className='h-row' /> */}
             {/* <Link to="#" className='btn btn-warning p-2 w-100 button-1 shadow'>Personal Booking</Link> */}
             {/* <hr className='h-row' />

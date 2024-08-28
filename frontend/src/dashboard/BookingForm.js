@@ -1,12 +1,18 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { backendurl } from '../ServicePage';
+import { useDispatch } from 'react-redux';
+import { newticket } from './redux/TicketSlice';
 
 function BookingForm() {
     const [locations, setLocations] = useState([]);
     const [pickup, setPickup] = useState('');
     const [drop, setDrop] = useState('');
+    const [seats, setSeats] = useState(1);
+    const [date, setDate] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const getLocationData = async () => {
         try {
@@ -20,6 +26,11 @@ function BookingForm() {
     useEffect(() => {
         getLocationData();
     }, []);
+
+    const handleSubmit = () => {
+        dispatch(newticket({ pickup:pickup, drop:drop, seats:seats, date:date }));
+        navigate("/carselect");
+    }
 
     return (
         <Fragment>
@@ -60,13 +71,14 @@ function BookingForm() {
                             </datalist>
                             <div className='row g-2'>
                                 <div className='col-lg-6 col-md-6 col-sm-6 col-6'>
-                                    <input type='number' className='form-control p-2 mb-2 input-box' placeholder='Seats' min={1} max={6} />
+                                    <input type='number' className='form-control p-2 mb-2 input-box' placeholder='Seats' min={1} max={6} value={seats} onChange={(e) => setSeats(e.target.value)} />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-6 col-6'>
-                                    <input type='date' className='form-control p-2 input-box' />
+                                    <input type='date' className='form-control p-2 input-box' placeholder='Date' value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
                             </div>
-                            <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1 shadow '>CONTINUE</Link>
+                            <input type="button" className='btn btn-warning p-2 w-100 button-1 shadow ' onClick={handleSubmit} value="submit"/>
+                            {/* <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1 shadow '>CONTINUE</Link> */}
                         </form>
                     </div>
                 </div>

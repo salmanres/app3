@@ -132,3 +132,7 @@ body, html {
     color: orange;
     font-weight: 600;
 }
+.ticket-card
+{
+    margin-bottom: 0px;
+}

@@ -5,10 +5,13 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { backendurl } from '../ServicePage';
+import { useDispatch } from 'react-redux';
+import { newticket } from '../dashboard/redux/TicketSlice';
 
 function LoginPage() {
     const appNavigation = useNavigate();
     const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
 
     const [userData, setUserData] = useState({
         mobile: "",
@@ -27,7 +30,8 @@ function LoginPage() {
         setLoading(true);
         try {
             const response = await axios.post(`${backendurl}/login`, userData);
-            toast.success(response.data.message);
+            const name = response.data.name;
+            dispatch(newticket({ username: name }));
             appNavigation("/home");
         } catch (error) {
             toast.error(error.response.data.message);

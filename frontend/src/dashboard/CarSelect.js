@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { backendurl } from '../ServicePage';
+import { useDispatch } from 'react-redux';
+import { newticket } from './redux/TicketSlice';
 
 function CarSelect() {
     const [carData, setCarData] = useState([]);
     const [fare, setFare] = useState(799);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const getCarData = async () => {
         try {
@@ -20,6 +24,19 @@ function CarSelect() {
         getCarData();
     }, []);
 
+    const handleSubmit = (cardata) => {
+        dispatch(newticket({ 
+            model: cardata.model,
+            registration:  cardata.registration,
+            drivername: cardata.drivername,
+            drivernumber: cardata.drivernumber,
+            departuretime: cardata.departuretime,
+            route: cardata.route,
+            fare: fare,
+         }));
+        navigate('/ticket');
+    };
+
     return (
         <Fragment>
             <div className='container-fluid g-0'>
@@ -33,12 +50,12 @@ function CarSelect() {
                         {carData.length > 0 ? (
                             carData.map((data) => (
                                 <div key={data.registration}>
-                                    <Link to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2 shadow'>
+                                    <button to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2 shadow' onClick={()=>handleSubmit(data)}>
                                         <b>{data.model}</b><br />
                                         Departure : {data.departuretime} <br />
                                         Available Seats : 4 <br />
                                         <b>FARE : {fare}/-</b>
-                                    </Link>
+                                    </button>
                                 </div>
                             ))
                         ) : (

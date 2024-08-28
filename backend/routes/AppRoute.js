@@ -41,7 +41,8 @@ appRoutes.post("/login", async (req, res) => {
     try {
         const userData = await newUser.findOne({ mobile });
         if (userData && userData.password === password) {
-            res.status(200).json({ message: "login successful!" });
+            const fullname = userData.name;
+            res.status(200).json({ message: "login successful!", name: fullname });
         } else {
             res.status(500).json({ message: "invalid username/password" });
         }
@@ -85,12 +86,12 @@ appRoutes.post("/addnewcar", async (req, res) => {
 
 //available cars API ----------------
 
-appRoutes.get("/availablecars", async (req, res)=>{
-    try{
+appRoutes.get("/availablecars", async (req, res) => {
+    try {
         const carData = await addnewcar.find();
         res.send(carData);
-    }catch(error){
-        res.status(350).json({message:"internal server error!"});
+    } catch (error) {
+        res.status(350).json({ message: "internal server error!" });
     }
 });
 
