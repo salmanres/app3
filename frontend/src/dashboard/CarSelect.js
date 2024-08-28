@@ -25,15 +25,15 @@ function CarSelect() {
     }, []);
 
     const handleSubmit = (cardata) => {
-        dispatch(newticket({ 
+        dispatch(newticket({
             model: cardata.model,
-            registration:  cardata.registration,
+            registration: cardata.registration,
             drivername: cardata.drivername,
             drivernumber: cardata.drivernumber,
             departuretime: cardata.departuretime,
             route: cardata.route,
             fare: fare,
-         }));
+        }));
         navigate('/ticket');
     };
 
@@ -43,14 +43,14 @@ function CarSelect() {
                 <div className='row mt-5 justify-content-center'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
                         <div className='row'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 '>
-                                <h1><b> Select Your Ride</b></h1>
+                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 mt-2'>
+                                <h1><b> Select Your Ride !</b></h1>
                             </div>
                         </div>
                         {carData.length > 0 ? (
                             carData.map((data) => (
                                 <div key={data.registration}>
-                                    <button to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2 shadow' onClick={()=>handleSubmit(data)}>
+                                    <button to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2' onClick={() => handleSubmit(data)}>
                                         <b>{data.model}</b><br />
                                         Departure : {data.departuretime} <br />
                                         Available Seats : 4 <br />

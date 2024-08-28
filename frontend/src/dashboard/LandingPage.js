@@ -25,7 +25,10 @@ function LandingPage() {
 
             <BookingForm />
 
-            <h3>welcome : {username}</h3>
+            <p className='register-link text-center mt-5'>welcome! {username}</p>
+            {/* <p className='register-link text-center mt-4'>max ticket limit: 6</p>
+            <p className='register-link text-center mt-4'>welcome! {username}</p>
+            <p className='register-link text-center mt-4'>welcome! {username}</p> */}
             {/* <hr className='h-row' /> */}
             {/* <Link to="#" className='btn btn-warning p-2 w-100 button-1 shadow'>Personal Booking</Link> */}
             {/* <hr className='h-row' />
