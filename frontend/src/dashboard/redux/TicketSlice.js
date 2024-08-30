@@ -16,6 +16,8 @@ const ticketSlice = createSlice({
         route: "",
         departuretime: "",
         fare: 0,
+        paymentId: "",
+        paymentStatus: "",
     },
     reducers: {
         newticket: (state, action) => {

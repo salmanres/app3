@@ -81,7 +81,7 @@ function BookingForm() {
                                 <input type='date' className='form-control p-2 input-box' placeholder='Date' value={date} onChange={(e) => setDate(e.target.value)} />
                             </div>
                         </div>
-                        <button className='btn btn-warning p-2 w-100 button-1 shadow ' onClick={handleSubmit} disabled={loader}>
+                        <button className='btn btn-warning p-2 w-100 button-1 rounded-0' onClick={handleSubmit} disabled={loader}>
                             {loader ? <span className='spinner-border spinner-border-sm me-2' role='status' aria-hidden='true'></span> : "CONTINUE"}
                             </button>
                         {/* <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1 shadow '>CONTINUE</Link> */}

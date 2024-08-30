@@ -30,7 +30,7 @@ function TicketPage() {
                                 <h1><b>Collect your Ticket !</b></h1>
                             </div> */}
                         </div>
-                        <div className="card border-warning mt-2 ticket-card rounded-0">
+                        <div className="card border-warning mt-2 ticket-card rounded-0 shadow mb-5">
                             <div class="card-header">TICKET DETAILS</div>
                             <div className="card-body" id='pdf'>
                                 <p className="card-text mb-0 border-bottom pb-1"><b>Booking ID : </b>66c1b6da86eac9640a1c4f0e</p>
@@ -46,11 +46,12 @@ function TicketPage() {
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Route Details : </b>{ticketData.route}</p>
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Departure Time : </b>{ticketData.departuretime}</p>
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Fare : </b>{ticketData.fare}/-</p>
-                                <p className="card-text"><b>Payment Status : </b>Completed</p>
+                                <p className="card-text mb-1 border-bottom pb-1"><b>PaymentId : </b>{ticketData.paymentId}</p>
+                                <p className="card-text"><b>Payment Status : </b>{ticketData.paymentId ? "Paid" : "Not Completed"}</p>
                             </div>
+                            <button className='btn btn-warning w-100 button-1  rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
+                            <Link to="/home" className='btn btn-warning w-100 button-1 rounded-0 mt-2'>BACK TO HOME</Link>
                         </div>
-                        <button className='btn btn-warning w-100 button-1 shadow mt-2 rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
-                        <Link to="/home" className='btn btn-warning w-100 button-1 shadow  rounded-0 mt-2 mb-5'>BACK TO HOME</Link>
                     </div>
                 </div>
             </div>

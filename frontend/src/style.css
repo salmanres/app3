@@ -62,7 +62,7 @@ body, html {
 }
 .button-1
 {
-    font-weight: 700;
+    font-weight: 600;
     width: 100%;
     border-radius: 4px;
 }
@@ -91,7 +91,6 @@ body, html {
 .button-2 a
 {
     text-decoration: none;
-    font-weight: 500;
     color: black;
 }
 .icon-1
