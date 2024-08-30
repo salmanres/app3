@@ -4,10 +4,12 @@ const app = express();
 const appRoutes = require("./routes/AppRoute");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 require("./database/Connection");
 require("dotenv").config();
 const port = process.env.PORT || 3400;
 
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());

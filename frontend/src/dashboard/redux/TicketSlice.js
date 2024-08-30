@@ -4,6 +4,7 @@ const ticketSlice = createSlice({
     name: "ticket",
     initialState: {
         username: "",
+        mobile:"",
         pickup: "",
         drop: "",
         seats: "",

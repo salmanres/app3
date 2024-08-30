@@ -8,6 +8,8 @@ import { backendurl } from '../ServicePage';
 
 export default function RegisterPage() {
 
+    const [loading, setLoading] = useState(false);
+
     const [userData, setUserData] = useState({
         name: "",
         mobile: "",
@@ -24,15 +26,20 @@ export default function RegisterPage() {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
         if (userData.password === userData.confirmpassword) {
             try {
                 const response = await axios.post(`${backendurl}/register`, userData);
                 toast.success(response.data.message);
             } catch (error) {
                 toast.error(error.response.data.message);
+                setLoading(false);
+            }finally{
+                setLoading(false);
             }
         } else {
             toast.error("password not matched!");
+            setLoading(false);
         }
     }
 
@@ -48,7 +55,9 @@ export default function RegisterPage() {
                         <input type='mobile' className='form-control p-2 mb-2 input-box' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
                         <input type='password' className='form-control p-2 mb-2 input-box' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
                         <input type='text' className='form-control p-2 mb-2 input-box' placeholder='Confirm Password' name='confirmpassword' value={userData.confirmpassword} onChange={handleChange} />
-                        <button type='button' className='btn btn-warning p-2  w-100 button-1 shadow' onClick={handleSubmit}>REGISTER</button>
+                        <button type='button' className='btn btn-warning p-2  w-100 button-1 shadow' onClick={handleSubmit} disabled={loading}>
+                            {loading? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "REGISTER"}
+                            </button>
                         <div className='row mt-4 text-center'>
                             <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
                                 <label className='m-2'>Already Registered ?</label>

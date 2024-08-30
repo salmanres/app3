@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { backendurl } from '../ServicePage';
 import { useDispatch } from 'react-redux';
 import { newticket } from '../dashboard/redux/TicketSlice';
+import Cookies from 'js-cookie';
 
 function LoginPage() {
     const appNavigation = useNavigate();
@@ -31,7 +32,11 @@ function LoginPage() {
         try {
             const response = await axios.post(`${backendurl}/login`, userData);
             const name = response.data.name;
-            dispatch(newticket({ username: name }));
+            const mob = response.data.mobile;
+            dispatch(newticket({ username: name, mobile: mob }));
+            const token = response.data.token;
+            console.log(token);
+            Cookies.set('authToken', token, { expires: 1 });
             appNavigation("/home");
         } catch (error) {
             toast.error(error.response.data.message);

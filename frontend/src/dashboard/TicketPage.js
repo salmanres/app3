@@ -2,13 +2,14 @@ import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Link } from 'react-router-dom';
 
 function TicketPage() {
     const ticketData = useSelector((state) => state.ticket);
 
     const createPDF = async () => {
         try {
-            const data = await html2canvas(document.querySelector('#pdf'),{
+            const data = await html2canvas(document.querySelector('#pdf'), {
                 scale: 3,
             });
             const pdf = new jsPDF('portrait', 'pt', 'a4');
@@ -25,11 +26,12 @@ function TicketPage() {
                 <div className='row justify-content-center mt-5'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-10'>
                         <div className='row mt-4'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mt-1'>
-                                <h1><b>Booking Confirmed!</b></h1>
-                            </div>
+                            {/* <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mt-1 text-center'>
+                                <h1><b>Collect your Ticket !</b></h1>
+                            </div> */}
                         </div>
-                        <div className="card border-warning mt-3 ticket-card rounded-0">
+                        <div className="card border-warning mt-2 ticket-card rounded-0">
+                            <div class="card-header">TICKET DETAILS</div>
                             <div className="card-body" id='pdf'>
                                 <p className="card-text mb-0 border-bottom pb-1"><b>Booking ID : </b>66c1b6da86eac9640a1c4f0e</p>
                                 <p className="card-text mb-0 border-bottom pb-1"><b>Name : </b>{ticketData.username}</p>
@@ -47,7 +49,8 @@ function TicketPage() {
                                 <p className="card-text"><b>Payment Status : </b>Completed</p>
                             </div>
                         </div>
-                        <button className='btn btn-warning w-100 button-1 shadow  mb-5 rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
+                        <button className='btn btn-warning w-100 button-1 shadow mt-2 rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
+                        <Link to="/home" className='btn btn-warning w-100 button-1 shadow  rounded-0 mt-2 mb-5'>BACK TO HOME</Link>
                     </div>
                 </div>
             </div>

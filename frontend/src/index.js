@@ -18,6 +18,7 @@ import DriverPanel from './dashboard/DriverPanel';
 import { Provider } from 'react-redux'
 import { appStore } from './dashboard/redux/Store';
 import TicketPage from './dashboard/TicketPage';
+import PaymentPage from './dashboard/PaymentPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,7 @@ root.render(
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/carselect' element={<CarSelect />} />
             <Route path='/ticket' element={<TicketPage />} />
+            <Route path='/payment' element={<PaymentPage />} />
           </Route>
           <Route path='admin' element={<AdminPage />}>
             <Route path='' element={<AdminMenu />} />

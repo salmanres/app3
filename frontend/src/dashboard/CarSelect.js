@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { backendurl } from '../ServicePage';
 import { useDispatch } from 'react-redux';
 import { newticket } from './redux/TicketSlice';
+import Cookies from 'js-cookie'; // Import js-cookie
+import ModalConfirm from './ModalConfirm';
 
 function CarSelect() {
     const [carData, setCarData] = useState([]);
@@ -13,7 +15,12 @@ function CarSelect() {
 
     const getCarData = async () => {
         try {
-            const response = await axios.get(`${backendurl}/availablecars`);
+            const token = Cookies.get('authToken'); // Retrieve token from cookies
+            const response = await axios.get(`${backendurl}/availablecars`, {
+                headers: {
+                    Authorization: `Bearer ${token}` // Include token in request headers
+                }
+            });
             setCarData(response.data);
         } catch (error) {
             console.log(error);
@@ -34,7 +41,7 @@ function CarSelect() {
             route: cardata.route,
             fare: fare,
         }));
-        navigate('/ticket');
+        navigate('/payment');
     };
 
     return (
@@ -43,7 +50,7 @@ function CarSelect() {
                 <div className='row mt-5 justify-content-center'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
                         <div className='row'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 mt-2'>
+                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 mt-2 text-center'>
                                 <h1><b> Select Your Ride !</b></h1>
                             </div>
                         </div>
@@ -59,7 +66,10 @@ function CarSelect() {
                                 </div>
                             ))
                         ) : (
-                            <p>No data</p>
+                            <div className='d-flex justify-content-center'>
+                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            </div>
+
                         )}
                     </div>
                 </div>
