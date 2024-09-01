@@ -5,7 +5,6 @@ import { backendurl } from '../ServicePage';
 import { useDispatch } from 'react-redux';
 import { newticket } from './redux/TicketSlice';
 import Cookies from 'js-cookie'; // Import js-cookie
-import ModalConfirm from './ModalConfirm';
 
 function CarSelect() {
     const [carData, setCarData] = useState([]);

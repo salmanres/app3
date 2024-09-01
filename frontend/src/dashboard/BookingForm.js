@@ -47,6 +47,12 @@ function BookingForm() {
                                 <h1><b> Select Pickup & Drop Location</b></h1>
                             </div>
                         </div>
+                        {/* <div className="card border-warning mb-3">
+                            <div className="card-header">SELECT PICKUP & DROP</div>
+                            <div className="card-body">
+                                
+                            </div>
+                        </div> */}
                         <input
                             className='form-control p-2 mb-2 input-box'
                             type='text'
@@ -81,9 +87,9 @@ function BookingForm() {
                                 <input type='date' className='form-control p-2 input-box' placeholder='Date' value={date} onChange={(e) => setDate(e.target.value)} />
                             </div>
                         </div>
-                        <button className='btn btn-warning p-2 w-100 button-1 rounded-0' onClick={handleSubmit} disabled={loader}>
+                        <button className='btn btn-warning p-2 w-100 button-1 ' onClick={handleSubmit} disabled={loader}>
                             {loader ? <span className='spinner-border spinner-border-sm me-2' role='status' aria-hidden='true'></span> : "CONTINUE"}
-                            </button>
+                        </button>
                         {/* <Link to="/carselect" className='btn btn-warning p-2 w-100 button-1 shadow '>CONTINUE</Link> */}
                     </div>
                 </div>

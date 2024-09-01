@@ -25,14 +25,14 @@ function LandingPage() {
 
             <BookingForm />
 
-            <p className='register-link text-center mt-5'>welcome! {username}</p>
-            {/* <hr className='h-row' /> */}
-            {/* <Link to="#" className='btn btn-warning p-2 w-100 button-1 shadow'>Personal Booking</Link> */}
+            {/* <p className='register-link text-center mt-5'>welcome! {username}</p> */}
             {/* <hr className='h-row' />
+            <Link to="#" className='btn btn-warning p-2 w-100 button-1 shadow'>Personal Booking</Link> */}
+            <hr className='h-row' />
             <div className='row'>
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between'>
                 <div className='button-2'>
-                  <Link to="#" className='text-center'>
+                  <Link to="/myticket" className='text-center'>
                     <IoTicket className='icon-1' /><br />
                     VIEW TICKET</Link>
                 </div>
@@ -47,7 +47,7 @@ function LandingPage() {
             <div className='row'>
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between'>
                 <div className='button-2'>
-                  <Link to="#" className='text-center'>
+                  <Link to="/history" className='text-center'>
                     <RiChatHistoryFill className='icon-1' /><br />
                     HISTORY</Link>
                 </div>
@@ -63,7 +63,7 @@ function LandingPage() {
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 text-center'>
                 <label className='disclaimer'><b>Note : </b> All routes are fixed. Choose pickup and drop locations according route list !</label>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

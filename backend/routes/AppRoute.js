@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const verifyToken = require("../middleware/auth.js");
 const seckey = "your_secret_key";
 const Razorpay = require("razorpay");
+const ticket = require("../schemas/TicketSchema.js");
 require('dotenv').config();
 
 //welcome page API  ----------------
@@ -155,6 +156,94 @@ appRoutes.get("/payment/:paymentId", async (req, res) => {
         console.log(error);
         res.status(460).json({ message: "internal error", error });
     }
-})
+});
+
+// ticket api ................
+
+appRoutes.post("/saveticket", async (req, res) => {
+    const {
+        username,
+        mobile,
+        pickup,
+        drop,
+        seats,
+        date,
+        model,
+        registration,
+        drivername,
+        drivernumber,
+        route,
+        departuretime,
+        fare,
+        paymentId,
+    } = req.body;
+    try {
+        const ticketData = new ticket({
+            username,
+            mobile,
+            pickup,
+            drop,
+            seats,
+            model,
+            registration,
+            drivername,
+            drivernumber,
+            route,
+            departuretime,
+            fare,
+            paymentId,
+        });
+        await ticketData.save();
+        res.status(200).json({ message: "ticket saved successfully" });
+    } catch (error) {
+        res.status(400).json({ message: "internal server error", error });
+    };
+});
+
+
+appRoutes.get("/myticket", async (req, res) => {
+    const { mobile } = req.query;
+    try {
+        const response = await ticket.find({ mobile: mobile, ridestatus: "ongoing" });
+        res.send(response);
+        console.log(response);
+    } catch (error) {
+        res.status(350).json({ message: "no booking available!", error });
+    }
+});
+
+appRoutes.get("/myhistory", async (req, res) => {
+    const { mobile } = req.query;
+    try {
+        const response = await ticket.find({ mobile: mobile, ridestatus: "completed" });
+        res.send(response);
+        console.log(response);
+    } catch (error) {
+        res.status(350).json({ message: "no booking available!", error });
+    }
+});
+
+appRoutes.get("/getticketdata/:id", async(req, res)=>{
+    const {id} = req.params;
+    try{
+        const response = await ticket.findById(id);
+        res.send(response);
+    }catch(error){
+        res.status(330).json({message: "internal server error", error});
+    }
+});
+
+appRoutes.patch("/modifyticket/:id", async (req, res)=>{
+    const {id} = req.params;
+    try{
+        console.log(id);
+        console.log(req.body);
+        const response = await ticket.findByIdAndUpdate(id, req.body, {new:true});
+        res.send(response);
+    }catch(error){
+        res.status(330).json({message: "internal server error", error});
+    }
+});
+
 
 module.exports = appRoutes;

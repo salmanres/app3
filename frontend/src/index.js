@@ -20,6 +20,9 @@ import { appStore, persistor } from './dashboard/redux/Store';
 import TicketPage from './dashboard/TicketPage';
 import PaymentPage from './dashboard/PaymentPage';
 import { PersistGate } from 'redux-persist/integration/react';
+import MyTicket from './dashboard/MyTicket';
+import Myhistory from './dashboard/MyHistory';
+import ModifyTicket from './dashboard/ModifyTicket';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,6 +39,9 @@ root.render(
               <Route path='/carselect' element={<CarSelect />} />
               <Route path='/ticket' element={<TicketPage />} />
               <Route path='/payment' element={<PaymentPage />} />
+              <Route path='/myticket' element={<MyTicket/>} />
+              <Route path='/history' element={<Myhistory/>} />
+              <Route path='/modifyticket/:id' element={<ModifyTicket/>} />
             </Route>
             <Route path='admin' element={<AdminPage />}>
               <Route path='' element={<AdminMenu />} />

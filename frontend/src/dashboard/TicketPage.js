@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -13,7 +13,7 @@ function TicketPage() {
                 scale: 3,
             });
             const pdf = new jsPDF('portrait', 'pt', 'a4');
-            pdf.addImage(data.toDataURL('image/png'), 'PNG', 80, 80, 400.28, 641.89);
+            pdf.addImage(data.toDataURL('image/png'), 'PNG', 80, 80, 400.28, 341.89);
             pdf.save('ticket_details.pdf');
         } catch (error) {
             console.error('Error creating PDF:', error);
@@ -31,9 +31,8 @@ function TicketPage() {
                             </div> */}
                         </div>
                         <div className="card border-warning mt-2 ticket-card rounded-0 shadow mb-5">
-                            <div class="card-header">TICKET DETAILS</div>
+                            <div className="card-header">TICKET DETAILS</div>
                             <div className="card-body" id='pdf'>
-                                <p className="card-text mb-0 border-bottom pb-1"><b>Booking ID : </b>66c1b6da86eac9640a1c4f0e</p>
                                 <p className="card-text mb-0 border-bottom pb-1"><b>Name : </b>{ticketData.username}</p>
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Pickup Location : </b>{ticketData.pickup}</p>
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Drop Location : </b>{ticketData.drop}</p>
