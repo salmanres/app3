@@ -21,7 +21,6 @@ function DriverPanel() {
     };
 
     const completeBooking = async (id) => {
-        confirm("Are you sure you want to complete this booking?");
         try {
             const response = await axios.patch(`${backendurl}/completebooking/${id}`);
         } catch (error) {
