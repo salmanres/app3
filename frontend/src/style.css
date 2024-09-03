@@ -1,78 +1,75 @@
-body, html {
+body,
+html {
     margin: 0 auto;
     padding: 0;
     overflow-x: hidden;
 }
-.navbar
-{
+
+.navbar {
     height: 55px;
     background-color: orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:fixed;
+    position: fixed;
     top: 0;
     z-index: 1000;
     width: 100%;
     color: white;
-    font-size: 40px;
-    
+    font-size: 38px;
 }
-.main-container
-{
+
+.main-container {
     margin-top: 83px;
 }
-.input-box
-{
+
+.input-box {
     border: none;
     font-weight: 450;
-    border:1px solid orange;
+    border: 1px solid orange;
     border-radius: 2px;
 }
-.input-box:focus
-{
+
+.input-box:focus {
     box-shadow: none;
     outline: none;
-    border:1px solid orange;
+    border: 1px solid orange;
     font-weight: 450;
 }
-.input-box::placeholder
-{
+
+.input-box::placeholder {
     font-weight: 450;
     color: gray;
 }
-.input-box2
-{
+
+.input-box2 {
     border: none;
     font-weight: 450;
-    border:1px solid orange;
+    border: 1px solid orange;
     text-transform: uppercase;
 }
-.input-box2:focus
-{
+
+.input-box2:focus {
     box-shadow: none;
     outline: none;
-    border:1px solid orange;
+    border: 1px solid orange;
     font-weight: 450;
 }
-.input-box2::placeholder
-{
+
+.input-box2::placeholder {
     font-weight: 450;
     color: gray;
 }
-.button-1
-{
+
+.button-1 {
     font-weight: 600;
     width: 100%;
 }
 
-.button-1:focus, .button-1:active
-{
+.button-1:focus,
+.button-1:active {
     font-weight: 500;
     width: 100%;
 }
-.button-2
-{
+
+.button-2 {
     border: 1px solid orange;
     border-radius: 8px;
     width: 49%;
@@ -83,72 +80,124 @@ body, html {
     font-size: 13px;
     margin-bottom: 6px;
 }
-.button-2:hover
-{
+
+.button-2:hover {
     background-color: orange;
     transition: all 1s;
 }
-.button-2 a
-{
+
+.button-2 a {
     text-decoration: none;
     font-weight: 500;
     color: black;
 }
-.icon-1
-{
+
+.icon-1 {
     font-size: 30px;
     margin-bottom: 5px;
 }
-.checkbox
-{
+
+.checkbox {
     height: 17px !important;
     width: 17px !important;
-    vertical-align:middle;
+    vertical-align: middle;
     margin-bottom: 4px;
 }
-.check-label
-{
+
+.check-label {
     font-size: 17px;
     margin-top: -10px;
 }
-.h-row
-{
+
+.h-row {
     border: 1px solid orange;
 }
-.disclaimer
-{
+
+.disclaimer {
     font-size: 15px;
     color: gray;
     margin-top: 5px;
 }
-.cardataview
-{
+
+.cardataview {
     color: black;
     font-size: 14px;
 }
-.register-link
-{
+
+.register-link {
     text-decoration: none;
     color: orange;
     font-weight: 600;
 }
-.ticket-card
-{
+
+.ticket-card {
     margin-bottom: 0px;
 }
-.label-2
-{
+
+.label-2 {
     width: 100%;
     background-color: orange;
-    padding: 7px;
+    padding: 6px;
     color: white;
     /* margin-bottom: 5px; */
     font-weight: 600;
     text-align: center;
-    font-size: 19px;
+    font-size: 16px;
+    border-radius: 3px;
 }
-.btn-3
-{
+
+.btn-3 {
     height: 30px;
     width: 60px !important;
+}
+
+.label-3 {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 10px;
+    border-radius: 0px;
+    margin-top: 3px;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+    margin-top: -12px;
+}
+
+.sidebar {
+    background-color: orange;
+    height: 100vh;
+    color: white;
+    width: 250px !important;
+    font-size: 18px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.menu-list li {
+    width: 200px;
+    border-bottom: 1px solid white;
+    padding: 8px;
+}
+
+.menu-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+.menu-icon
+{
+    font-size: 20px;
+    margin: -5px 10px 0px 0px;
 }

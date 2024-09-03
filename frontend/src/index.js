@@ -23,7 +23,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import MyTicket from './dashboard/MyTicket';
 import Myhistory from './dashboard/MyHistory';
 import ModifyTicket from './dashboard/ModifyTicket';
-
+import BookingList from './dashboard/BookingList';
+import DriverLandingPage from './dashboard/DriverLandingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,15 +40,18 @@ root.render(
               <Route path='/carselect' element={<CarSelect />} />
               <Route path='/ticket' element={<TicketPage />} />
               <Route path='/payment' element={<PaymentPage />} />
-              <Route path='/myticket' element={<MyTicket/>} />
-              <Route path='/history' element={<Myhistory/>} />
-              <Route path='/modifyticket/:id' element={<ModifyTicket/>} />
+              <Route path='/myticket' element={<MyTicket />} />
+              <Route path='/history' element={<Myhistory />} />
+              <Route path='/modifyticket/:id' element={<ModifyTicket />} />
             </Route>
             <Route path='admin' element={<AdminPage />}>
               <Route path='' element={<AdminMenu />} />
               <Route path='addnewcar' element={<AddNewCar />} />
             </Route>
-            <Route path='driver' element={<DriverPanel />} />
+            <Route path='driver' element={<DriverLandingPage />}>
+              <Route path='' element={<DriverPanel />} />
+              <Route path='bookinglist' element={<BookingList />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </PersistGate>

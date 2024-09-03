@@ -11,9 +11,8 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import { IoLogOutSharp } from "react-icons/io5";
 
-function Navbar() {
+function NavbarDriver() {
 
-  const username = useSelector((state) => state.ticket.username);
   const navigate = useNavigate();
 
   const handleNavigate = (path) => {
@@ -32,17 +31,17 @@ function Navbar() {
               </a>
               <div className="offcanvas offcanvas-start sidebar" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">
-                  <h5 className="offcanvas-title ms-2" id="offcanvasExampleLabel">welcome {username}</h5>
+                  <h5 className="offcanvas-title ms-2" id="offcanvasExampleLabel">welcome</h5>
                   <button type="button" className="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
                   <ul className='menu-list'>
-                    <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>HOME</Link></li>
-                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/myticket")}>VIEW TICKET</Link></li>
-                    <li><MdEditSquare className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>MODIFY TICKET</Link></li>
-                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/history")}>HISTORY</Link></li>
-                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>ROUTE LIST</Link></li>
-                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>EMERGENCY</Link></li>
+                    <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("")}>HOME</Link></li>
+                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driver/bookinglist")}>BOOKING LIST</Link></li>
+                    <li><MdEditSquare className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>NEW ROUTE</Link></li>
+                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>CREATE BOOKING</Link></li>
+                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>MY PROFILE</Link></li>
+                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>EMERGENCY</Link></li>
                     <li><IoLogOutSharp className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>LOGOUT</Link></li>
                   </ul>
                 </div>
@@ -60,4 +59,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarDriver;

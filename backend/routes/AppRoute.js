@@ -246,4 +246,16 @@ appRoutes.patch("/modifyticket/:id", async (req, res)=>{
 });
 
 
+// Driver End APIs ...............
+
+appRoutes.get("/mybookings", async(req,res)=>{
+    try{
+        const response = await ticket.find({ridestatus: "ongoing"});
+        res.send(response);
+    }catch(error){
+        res.status(340).json({message: "internal server error", error});
+    }
+});
+
+
 module.exports = appRoutes;
