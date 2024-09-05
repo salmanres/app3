@@ -89,6 +89,7 @@ function LoginPage() {
                 </div>
             </div>
             <Link to="/driver" >driver</Link>
+            <Link to="/admin" >driver</Link>
             <ToastContainer />
         </Fragment>
     )
