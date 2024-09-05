@@ -10,6 +10,8 @@ const seckey = "your_secret_key";
 const Razorpay = require("razorpay");
 const ticket = require("../schemas/TicketSchema.js");
 require('dotenv').config();
+const newDriver = require("../schemas/NewDriverSchema.js");
+const newRoute = require("../schemas/NewRouteSchema.js");
 
 //welcome page API  ----------------
 
@@ -223,39 +225,157 @@ appRoutes.get("/myhistory", async (req, res) => {
     }
 });
 
-appRoutes.get("/getticketdata/:id", async(req, res)=>{
-    const {id} = req.params;
-    try{
+appRoutes.get("/getticketdata/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
         const response = await ticket.findById(id);
         res.send(response);
-    }catch(error){
-        res.status(330).json({message: "internal server error", error});
+    } catch (error) {
+        res.status(330).json({ message: "internal server error", error });
     }
 });
 
-appRoutes.patch("/modifyticket/:id", async (req, res)=>{
-    const {id} = req.params;
-    try{
+appRoutes.patch("/modifyticket/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
         console.log(id);
         console.log(req.body);
-        const response = await ticket.findByIdAndUpdate(id, req.body, {new:true});
+        const response = await ticket.findByIdAndUpdate(id, req.body, { new: true });
         res.send(response);
-    }catch(error){
-        res.status(330).json({message: "internal server error", error});
+    } catch (error) {
+        res.status(330).json({ message: "internal server error", error });
     }
 });
 
 
 // Driver End APIs ...............
 
-appRoutes.get("/mybookings", async(req,res)=>{
-    try{
-        const response = await ticket.find({ridestatus: "ongoing"});
+appRoutes.get("/mybookings", async (req, res) => {
+    try {
+        const response = await ticket.find({ ridestatus: "ongoing" });
         res.send(response);
-    }catch(error){
-        res.status(340).json({message: "internal server error", error});
+    } catch (error) {
+        res.status(340).json({ message: "internal server error", error });
     }
 });
+
+appRoutes.patch("/completebooking/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await ticket.findByIdAndUpdate(id, { ridestatus: "completed" });
+        res.send(response);
+        console.log(response);
+    } catch (error) {
+        res.status(340).json({ message: "internal server error", error });
+    }
+});
+
+appRoutes.post("/driverlogin", async (req, res) => {
+    const { drivernumber, driverpassword } = req.body;
+    if (!drivernumber || !driverpassword) {
+        return res.status(400).json({ message: "please fill all details!" });
+    }
+    try {
+        const data = await newDriver.findOne({ drivernumber });
+        if (!data) {
+            return res.status(404).json({ message: "Driver not found! Please register first." });
+        }
+        if (data.driverpassword === driverpassword && data.drivernumber === drivernumber) {
+            return res.status(200).json({ message: "login successful!" });
+        } else {
+            return res.status(401).json({ message: "Invalid credentials. Please try again!" });
+        }
+    } catch (error) {
+        res.status(450).json({ message: "internal server error", error });
+    }
+});
+
+
+// admin side apis ................
+
+
+appRoutes.post("/addnewdriver", async (req, res) => {
+    const {
+        drivername, drivernumber, driverlicence, driveraadhar, driveraddress, driverpassword
+    } = req.body;
+
+    try {
+        const data = await newDriver.findOne({ driverlicence });
+        if (data) {
+            return res.status(409).json({ message: "Driver already registered! Please login." });
+        }
+        if (!drivername || !drivernumber || !driverlicence || !driveraadhar || !driverpassword || driveraddress) {
+            return res.status(400).json({ message: "please fill all details!" });
+        }
+        const response = await newDriver.create({
+            drivername, drivernumber, driverlicence, driveraddress, driveraadhar, driverpassword
+        });
+        res.status(201).json({ message: "Driver added successfully" });
+        console.log(response);
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error });
+    }
+});
+
+appRoutes.post("/addnewroute", async (req, res) => {
+    const { origin, destination } = req.body;
+    if (!origin || !destination) {
+        return res.status(400).json({ message: "Please fill all details!" }); // Changed 450 to 400
+    }
+    try {
+        const response = await newRoute.create({ origin, destination });
+        res.status(200).json({ message: "Route added successfully!" });
+        console.log(response);
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error!", error }); // Changed 400 to 500 for server error
+    }
+});
+
+appRoutes.get("/getdriverdata", async (req, res) => {
+    const { drivername } = req.body;
+    try {
+        const response = await newDriver.find({});
+        res.send(response);
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error!", error });
+    }
+});
+
+appRoutes.get("/getsingledriverdata/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await newDriver.findById(id);
+        res.send(response);
+    } catch (error) {
+        res.status(500).json({ message: "internal server error", error });
+    }
+});
+
+appRoutes.patch("/blacklistdriver/:id", async (req, res) => {
+    const { id } = req.params;
+    const { blacklisted } = req.body;
+    try {
+        const response = await newDriver.findByIdAndUpdate(id, { blacklisted });
+        res.send(response);
+    } catch (error) {
+        res.status(500).json({ message: "internal server error", error });
+    }
+});
+
+appRoutes.get("/cardata", async (req, res) => {
+    const { registration } = req.query;
+    try {
+        const response = await addnewcar.find({ registration: new RegExp(registration, 'i') });
+        if (response.length > 0) {
+            res.send(response);
+        } else {
+            res.status(404).json({ message: "Vehicle not found!" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error });
+    }
+});
+
 
 
 module.exports = appRoutes;

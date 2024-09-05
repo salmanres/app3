@@ -36,13 +36,13 @@ function NavbarDriver() {
                 </div>
                 <div className="offcanvas-body">
                   <ul className='menu-list'>
-                    <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("")}>HOME</Link></li>
-                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driver/bookinglist")}>BOOKING LIST</Link></li>
-                    <li><MdEditSquare className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>NEW ROUTE</Link></li>
-                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>CREATE BOOKING</Link></li>
-                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>MY PROFILE</Link></li>
-                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>EMERGENCY</Link></li>
-                    <li><IoLogOutSharp className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>LOGOUT</Link></li>
+                    <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/")}>HOME</Link></li>
+                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/bookinglist")}>BOOKING LIST</Link></li>
+                    <li><MdEditSquare className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/newroute")}>NEW ROUTE</Link></li>
+                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/createbooking")}>CREATE BOOKING</Link></li>
+                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/myprofile")}>MY PROFILE</Link></li>
+                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driverpanel/emergency")}>EMERGENCY</Link></li>
+                    <li><IoLogOutSharp className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/driver")}>LOGOUT</Link></li>
                   </ul>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import NavbarDriver from './shared/NavbarDriver';
 function DriverPanel() {
 
     const [bookingData, setBookingData] = useState([]);
+    const [loader, setLoader] = useState(false);
 
     const getBookingData = async () => {
         try {
@@ -21,8 +22,11 @@ function DriverPanel() {
     };
 
     const completeBooking = async (id) => {
+        setLoader(true);
         try {
             const response = await axios.patch(`${backendurl}/completebooking/${id}`);
+            setLoader(false);
+            getBookingData();
         } catch (error) {
             console.log(error);
         }
@@ -68,7 +72,9 @@ function DriverPanel() {
                                         <p className="card-text border-bottom mb-0 pb-1 "><b>Route : </b>{data.route}</p>
                                         <p className="card-text border-bottom mb-0 pb-1 "><b>Fare : </b>{data.fare}/-</p>
                                         <p className="card-text mb-0 pb-1 "><b>Status : </b>{data.ridestatus}</p>
-                                        <button className='btn btn-warning mt-2 rounded-0' onClick={() => completeBooking(data._id)}>COMPLETE</button>
+                                        <button className='btn btn-warning mt-2 rounded-0' onClick={() => completeBooking(data._id)}>
+                                            {loader ? <span className='spinner-border spinner-border-sm' role='status'></span> : "COMPLETE"}
+                                        </button>
                                         <button className='btn btn-warning mt-2 rounded-0 float-end'>CANCEL</button>
                                     </div>
                                 </div>

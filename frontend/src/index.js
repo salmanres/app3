@@ -25,6 +25,19 @@ import Myhistory from './dashboard/MyHistory';
 import ModifyTicket from './dashboard/ModifyTicket';
 import BookingList from './dashboard/BookingList';
 import DriverLandingPage from './dashboard/DriverLandingPage';
+import NewRoute from './dashboard/NewRoute';
+import CreateBooking from './dashboard/CreateBooking';
+import MyProfile from './dashboard/MyProfile';
+import Emergency from './dashboard/Emergency';
+import RouteList from './dashboard/RouteList';
+import ErrorPage from './dashboard/ErrorPage';
+import LoginDriver from './auth/LoginDriver';
+import AddNewDriver from './dashboard/AddNewDriver';
+import 'react-toastify/dist/ReactToastify.css';
+import AddNewRoute from './dashboard/AddNewRoute';
+import BlockDriver from './dashboard/BlockDriver';
+import DriverProfile from './dashboard/DriverProfile';
+import CarData from './dashboard/CarData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -43,14 +56,28 @@ root.render(
               <Route path='/myticket' element={<MyTicket />} />
               <Route path='/history' element={<Myhistory />} />
               <Route path='/modifyticket/:id' element={<ModifyTicket />} />
+              <Route path='/routelist' element={<RouteList />} />
+              <Route path='/emergency' element={<Emergency />} />
+              <Route path='*' element={<ErrorPage />} />
             </Route>
             <Route path='admin' element={<AdminPage />}>
               <Route path='' element={<AdminMenu />} />
               <Route path='addnewcar' element={<AddNewCar />} />
+              <Route path='addnewdriver' element={<AddNewDriver />} />
+              <Route path='addnewroute' element={<AddNewRoute />} />
+              <Route path='driverdata' element={<BlockDriver />} />
+              <Route path='driverprofile/:id' element={<DriverProfile />} />
+              <Route path='cardata' element={<CarData />} />
             </Route>
-            <Route path='driver' element={<DriverLandingPage />}>
+            <Route path='driver' element={<LoginDriver />} />
+            <Route path='driverpanel' element={<DriverLandingPage />}>
               <Route path='' element={<DriverPanel />} />
+              <Route path='driverhome' element={<DriverPanel />} />
               <Route path='bookinglist' element={<BookingList />} />
+              <Route path='newroute' element={<NewRoute />} />
+              <Route path='createbooking' element={<CreateBooking />} />
+              <Route path='myprofile' element={<MyProfile />} />
+              <Route path='emergency' element={<Emergency />} />
             </Route>
           </Routes>
         </BrowserRouter>

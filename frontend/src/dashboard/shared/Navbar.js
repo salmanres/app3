@@ -39,10 +39,9 @@ function Navbar() {
                   <ul className='menu-list'>
                     <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>HOME</Link></li>
                     <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/myticket")}>VIEW TICKET</Link></li>
-                    <li><MdEditSquare className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>MODIFY TICKET</Link></li>
                     <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/history")}>HISTORY</Link></li>
-                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>ROUTE LIST</Link></li>
-                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>EMERGENCY</Link></li>
+                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/routelist")}>ROUTE LIST</Link></li>
+                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/emergency")}>EMERGENCY</Link></li>
                     <li><IoLogOutSharp className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>LOGOUT</Link></li>
                   </ul>
                 </div>

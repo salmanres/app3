@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import Navbar from './shared/Navbar'
 import { Outlet } from 'react-router-dom'
+import NavbarAdmin from './shared/NavbarAdmin'
 
 function AdminPage() {
   return (
     <Fragment>
-        <Navbar/>
+        <NavbarAdmin/>
         <Outlet/>
     </Fragment>
   )
