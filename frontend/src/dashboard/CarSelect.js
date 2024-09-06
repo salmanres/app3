@@ -48,28 +48,29 @@ function CarSelect() {
             <div className='container-fluid g-0'>
                 <div className='row mt-5 justify-content-center'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
-                        <div className='row'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 mb-3 mt-2 text-center'>
-                                <h1><b> Select Your Ride !</b></h1>
+                        <div className="card border-warning mb-5 rounded-0 shadow-sm mt-3 g-0 ">
+                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>SELECT YOUR RIDE</label>
+                            <div className="card-body g-0 p-0">
+                                {carData.length > 0 ? (
+                                    carData.map((data) => (
+                                        <div key={data.registration}>
+                                            <button to="#" className='btn btn-outline-warning w-100 cardataview shadow-sm' onClick={() => handleSubmit(data)}>
+                                                <b>{data.model}</b><br />
+                                                Departure : {data.departuretime} <br />
+                                                Available Seats : 4 <br />
+                                                <b>FARE : {fare}/-</b>
+                                            </button>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className='d-flex justify-content-center'>
+                                        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    </div>
+
+                                )}
                             </div>
                         </div>
-                        {carData.length > 0 ? (
-                            carData.map((data) => (
-                                <div key={data.registration}>
-                                    <button to="#" className='btn btn-outline-warning w-100 mb-2 cardataview  mb-2' onClick={() => handleSubmit(data)}>
-                                        <b>{data.model}</b><br />
-                                        Departure : {data.departuretime} <br />
-                                        Available Seats : 4 <br />
-                                        <b>FARE : {fare}/-</b>
-                                    </button>
-                                </div>
-                            ))
-                        ) : (
-                            <div className='d-flex justify-content-center'>
-                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            </div>
 
-                        )}
                     </div>
                 </div>
                 <br />

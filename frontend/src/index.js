@@ -38,6 +38,7 @@ import AddNewRoute from './dashboard/AddNewRoute';
 import BlockDriver from './dashboard/BlockDriver';
 import DriverProfile from './dashboard/DriverProfile';
 import CarData from './dashboard/CarData';
+import CarDetails from './dashboard/CarDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -68,6 +69,7 @@ root.render(
               <Route path='driverdata' element={<BlockDriver />} />
               <Route path='driverprofile/:id' element={<DriverProfile />} />
               <Route path='cardata' element={<CarData />} />
+              <Route path='cardetails/:id' element={<CarDetails />} />
             </Route>
             <Route path='driver' element={<LoginDriver />} />
             <Route path='driverpanel' element={<DriverLandingPage />}>

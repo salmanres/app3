@@ -42,7 +42,7 @@ function BlockDriver() {
                     <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-4 mb-5'>
                         <input
                             type="text"
-                            className='form-control rounded-0 d-input shadow-none p-2 mb-3'
+                            className='form-control rounded-0 d-input shadow-none p-2 mb-1'
                             placeholder="Search by Name/Mobile"
                             name="keyword"
                             value={keyword}

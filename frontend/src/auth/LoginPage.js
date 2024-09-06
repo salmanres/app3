@@ -53,26 +53,25 @@ function LoginPage() {
             <div className='container-fluid g-0'>
                 <div className='row justify-content-center mt-5'>
                     <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-5'>
-                        <div className='row'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1'>
-                                <h1><b> Login to your Account</b></h1>
+                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
+                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>LOGIN HERE</label>
+                            <div className="card-body">
+                                <input type='mobile' className='form-control p-2 d-input' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
+                                <input type='password' className='form-control p-2 d-input' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
+                                <div className="form-check mt-3">
+                                    <input className="form-check-input shadow-none" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <button type='button' className='btn btn-warning p-2 w-100 rounded-0 mt-3' onClick={handleLogin} disabled={loading}>
+                                    {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "LOGIN"}
+                                </button>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                                <form>
-                                    <input type='mobile' className='form-control p-2 mt-4 input-box' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
-                                    <input type='password' className='form-control p-2 mt-2 input-box' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
-                                    <div className='row'>
-                                        <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                                            <label className='mt-2 check-label'><input type='checkbox' className='checkbox ' name='rememberme' /> Remember me</label>
-                                        </div>
-                                    </div>
-                                    <button type='button' className='btn btn-warning p-2 w-100 button-1 shadow mt-2' onClick={handleLogin} disabled={loading}>
-                                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "LOGIN"}
-                                    </button>
-                                </form>
-                                <div className='row mt-4 text-center'>
+                                <div className='row mt-2 text-center'>
                                     <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
                                         <label className=''>Not Registered ? </label>
                                         <Link to="register" className='register-link'> SignUp</Link>
@@ -80,7 +79,7 @@ function LoginPage() {
                                 </div>
                                 <div className='row mt-3 text-center'>
                                     <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                                        <Link to="register" className='register-link'> Forgot the Password?</Link>
+                                        <Link to="register" className='register-link'> Forgot Password?</Link>
                                     </div>
                                 </div>
                             </div>
@@ -88,8 +87,8 @@ function LoginPage() {
                     </div>
                 </div>
             </div>
-            <Link to="/driver" >driver</Link>
-            <Link to="/admin" >driver</Link>
+            <Link className='text-decoration-none text-warning' to="/driver" >driver</Link><br/>
+            <Link className='text-decoration-none text-warning' to="/admin" >admin</Link>
             <ToastContainer />
         </Fragment>
     )

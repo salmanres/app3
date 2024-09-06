@@ -1,19 +1,23 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import ticketReducer from './TicketSlice';
+import driverReducer from './DriverSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, ticketReducer);
+const rootReducer = combineReducers({
+  ticket: ticketReducer,
+  driver: driverReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const appStore = configureStore({
-  reducer: {
-    ticket: persistedReducer,
-  },
+  reducer: persistedReducer,
 });
 
 export const persistor = persistStore(appStore);

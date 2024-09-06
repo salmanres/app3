@@ -31,14 +31,9 @@ const vehicleDetailsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    drivername: {
+    owneraddress: {
         type: String,
-        required: true,
-        trim: true
-    },
-    drivernumber: {
-        type: String,
-        required: true,
+        required: true
     },
     regDate: {
         type: Date,
@@ -49,25 +44,13 @@ const vehicleDetailsSchema = new mongoose.Schema({
             return now;
         }
     },
-    online: {
+    onroad: {
         type: Boolean,
         default: true
-    },
-    departureplace: {
-        type: String,
-        trim: true
-    },
-    departuretime: {
-        type: String,
-        trim: true
     },
     documentstatus: {
         type: Boolean,
         default: true
-    },
-    route: {
-        type: String,
-        trim: true
     }
 });
 

@@ -12,6 +12,7 @@ const ticket = require("../schemas/TicketSchema.js");
 require('dotenv').config();
 const newDriver = require("../schemas/NewDriverSchema.js");
 const newRoute = require("../schemas/NewRouteSchema.js");
+const onlinevehicle = require("../schemas/OnlineVehicleSchema.js");
 
 //welcome page API  ----------------
 
@@ -77,16 +78,16 @@ appRoutes.get("/location", async (req, res) => {
 //add new car API ----------------
 
 appRoutes.post("/addnewcar", async (req, res) => {
-    const { registration, model, make, color, ownername, ownernumber, drivername, drivernumber, departureplace, departuretime } = req.body;
+    const { registration, model, make, color, ownername, ownernumber, owneraddress } = req.body;
     try {
         const existingcar = await addnewcar.findOne({ registration });
-        if (!registration || !model || !make || !color || !ownername || !ownernumber || !drivername || !drivernumber) {
+        if (!registration || !model || !make || !color || !ownername || !ownernumber || !owneraddress) {
             return res.status(400).json({ message: "please fill all details!" });
         }
         if (existingcar) {
             res.status(450).json({ message: "vehicle already registered!" });
         } else {
-            let cardata = await addnewcar({ registration, model, make, color, ownername, ownernumber, drivername, drivernumber, departureplace, departuretime });
+            let cardata = await addnewcar({ registration, model, make, color, ownername, ownernumber, owneraddress });
             cardata.save();
             console.log(cardata);
             res.status(200).json({ message: "vehicle registered succesfully!" });
@@ -281,7 +282,9 @@ appRoutes.post("/driverlogin", async (req, res) => {
             return res.status(404).json({ message: "Driver not found! Please register first." });
         }
         if (data.driverpassword === driverpassword && data.drivernumber === drivernumber) {
-            return res.status(200).json({ message: "login successful!" });
+            const drivername = data.drivername;
+            const drivernumber = data.drivernumber;
+            return res.status(200).json({ message: "login successful!", drivername: drivername, drivernumber: drivernumber });
         } else {
             return res.status(401).json({ message: "Invalid credentials. Please try again!" });
         }
@@ -304,18 +307,27 @@ appRoutes.post("/addnewdriver", async (req, res) => {
         if (data) {
             return res.status(409).json({ message: "Driver already registered! Please login." });
         }
-        if (!drivername || !drivernumber || !driverlicence || !driveraadhar || !driverpassword || driveraddress) {
-            return res.status(400).json({ message: "please fill all details!" });
+        if (!drivername || !drivernumber || !driverlicence || !driveraadhar || !driverpassword || !driveraddress) {
+            return res.status(400).json({ message: "Please fill all details!" });
         }
-        const response = await newDriver.create({
-            drivername, drivernumber, driverlicence, driveraddress, driveraadhar, driverpassword
+
+        const newDriverData = new newDriver({
+            drivername,
+            drivernumber,
+            driverlicence,
+            driveraadhar,
+            driveraddress,
+            driverpassword
         });
-        res.status(201).json({ message: "Driver added successfully" });
-        console.log(response);
+
+        await newDriverData.save();
+        return res.status(201).json({ message: "Driver added successfully!" });
     } catch (error) {
-        res.status(500).json({ message: "Internal server error", error });
+        console.error(error);
+        return res.status(500).json({ message: "Server error. Please try again later." });
     }
 });
+
 
 appRoutes.post("/addnewroute", async (req, res) => {
     const { origin, destination } = req.body;
@@ -376,6 +388,75 @@ appRoutes.get("/cardata", async (req, res) => {
     }
 });
 
+appRoutes.get("/getsinglecardata/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await addnewcar.findById(id);
+        res.send(response);
+    } catch (error) {
+        res.status(500).json({ message: "internal server error", error });
+    }
+});
 
+appRoutes.patch("/offroadcar/:id", async (req, res) => {
+    const { id } = req.params;
+    const { onroad } = req.body;
+    try {
+        const response = await addnewcar.findByIdAndUpdate(id, { onroad });
+        res.send(response);
+    } catch (error) {
+        res.status(500).json({ message: "internal server error", error });
+    }
+});
+
+appRoutes.post("/addonlinevehicle", async (req, res) => {
+    const {
+        registration,
+        make,
+        model,
+        drivername,
+        drivernumber,
+        carroute,
+        departuretime,
+        arrivaltime,
+        seatsavailable,
+        fare
+    } = req.body;
+
+    if (!registration || !make || !model || !drivername || !drivernumber || !carroute || !departuretime || !arrivaltime || !seatsavailable || !fare) {
+        return res.status(400).json({ message: "Please fill all details!" });
+    }
+
+    try {
+        const existingVehicle = await onlinevehicle.findOne({ registration, drivername  });
+
+        if (existingVehicle) {
+            return res.status(400).json({ message: "Vehicle with the same registration and driver name already exists!" });
+        }
+        const response = await onlinevehicle.create({ registration, make, model, drivername, drivernumber, carroute, departuretime, arrivaltime, seatsavailable, fare });
+        res.status(200).json({ message: "Online vehicle added successfully!" });
+        console.log(response);
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error!", error });
+    }
+});
+
+appRoutes.get("/allcardata", async (req, res) => {
+    try {
+        const response = await addnewcar.find({});
+        res.send(response);
+    } catch {
+        res.status(400).json({ message: "Something went wrong!" })
+    }
+});
+
+appRoutes.get("/allroutedata", async (req, res) => {
+    try {
+        const response = await newRoute.find({});
+        res.send(response);
+    } catch (error) {
+        res.status(400).json({ message: "Something went wrong!" })
+    }
+});
 
 module.exports = appRoutes;

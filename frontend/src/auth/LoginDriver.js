@@ -4,6 +4,8 @@ import { IoCarSport } from "react-icons/io5";
 import { backendurl } from '../ServicePage';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { driverData } from '../dashboard/redux/DriverSlice';
 
 function LoginDriver() {
 
@@ -13,6 +15,7 @@ function LoginDriver() {
         driverpassword: ''
     });
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleChange = (event) => {
         setUserData({
@@ -28,6 +31,9 @@ function LoginDriver() {
             const response = await axios.post(`${backendurl}/driverlogin`, userData);
             console.log(response.data);
             toast.success(response.data.message);
+            const drivername = response.data.drivername;
+            const drivernumber = response.data.drivernumber;
+            dispatch(driverData({ drivername, drivernumber }));
             setLoader(false);
             if (response.status === 200) {
                 navigate("/driverpanel");
@@ -36,7 +42,7 @@ function LoginDriver() {
             console.log(error);
             toast.error(error.response.data.message);
             setLoader(false);
-        }finally{
+        } finally {
             setLoader(false);
         }
     }
