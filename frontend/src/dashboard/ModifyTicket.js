@@ -31,7 +31,7 @@ function ModifyTicket() {
         try {
             const response = await axios.patch(`${backendurl}/modifyticket/${id}`, ticketData);
             console.log(response.data);
-            navigate("/myticket");
+            navigate("/home/myticket");
         } catch (error) {
             console.log(error);
         }
@@ -46,19 +46,21 @@ function ModifyTicket() {
             <div className='container-fluid g-0 mt-5'>
                 <div className='row justify-content-center'>
                     <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
-                        <label className='label-2 shadow mb-1 mt-3'>EDIT DETAILS</label>
-                        <div className="card border-warning mb-3 rounded-0 shadow g-0 p-0">
+                        <label className='label-2 shadow-sm mt-3'>EDIT TICKET DETAILS</label>
+                        <div className="card border-warning mb-3 rounded-0 shadow-sm g-0 p-0">
                             <div className="card-body">
-                                <label className='form-label'>PICKUP</label>
-                                <input type="text" className='form-control border-bottom' placeholder='Pickup Location' value={ticketData.pickup} name="pickup" onChange={updateInput} />
-                                <label className='form-label'>DROP</label>
-                                <input type="text" className='form-control' placeholder='Drop Location' value={ticketData.drop} name="drop" onChange={updateInput} />
-                                <label className='form-label'>SEATS</label>
-                                <input type="text" className='form-control' placeholder='Seats' value={ticketData.seats} name="seats" onChange={updateInput} />
-                                <input type="date" className='form-control' name="date" />
+                                <label className='form-label label-tag'>Pickup</label>
+                                <input type="text" className='form-control d-input' placeholder='Pickup Location' value={ticketData.pickup} name="pickup" onChange={updateInput} disabled />
+                                <label className='form-label label-tag'>Drop</label>
+                                <input type="text" className='form-control  d-input' placeholder='Drop Location' value={ticketData.drop} name="drop" onChange={updateInput} disabled />
+                                <label className='form-label label-tag'>Seats</label>
+                                <input type="text" className='form-control  d-input' placeholder='Seats' value={ticketData.seats} name="seats" onChange={updateInput} disabled />
+                                <label className='form-label label-tag'>Date</label>
+                                <input type="date" className='form-control  d-input' name="date" />
                                 <button className='btn btn-warning ticket-1 rounded-0 w-100 mt-3' onClick={updateTicket}>UPDATE TICKET</button>
                             </div>
                         </div>
+                        <label className='disclaimer px-1'><b>Note : </b> Once ticket is booked, you can modify date only!</label>
 
                     </div>
                 </div>

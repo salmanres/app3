@@ -5,6 +5,7 @@ import { backendurl } from '../ServicePage';
 import { useDispatch } from 'react-redux';
 import { newticket } from './redux/TicketSlice';
 import Cookies from 'js-cookie'; // Import js-cookie
+import PaymentPage from './PaymentPage';
 
 function CarSelect() {
     const [carData, setCarData] = useState([]);
@@ -15,7 +16,7 @@ function CarSelect() {
     const getCarData = async () => {
         try {
             const token = Cookies.get('authToken'); // Retrieve token from cookies
-            const response = await axios.get(`${backendurl}/availablecars`, {
+            const response = await axios.get(`${backendurl}/onlinevehicle`, {
                 headers: {
                     Authorization: `Bearer ${token}` // Include token in request headers
                 }
@@ -37,10 +38,9 @@ function CarSelect() {
             drivername: cardata.drivername,
             drivernumber: cardata.drivernumber,
             departuretime: cardata.departuretime,
-            route: cardata.route,
-            fare: fare,
+            route: cardata.carroute,
+            fare: cardata.fare,
         }));
-        navigate('/payment');
     };
 
     return (
@@ -54,23 +54,52 @@ function CarSelect() {
                                 {carData.length > 0 ? (
                                     carData.map((data) => (
                                         <div key={data.registration}>
-                                            <button to="#" className='btn btn-outline-warning w-100 cardataview shadow-sm' onClick={() => handleSubmit(data)}>
-                                                <b>{data.model}</b><br />
-                                                Departure : {data.departuretime} <br />
-                                                Available Seats : 4 <br />
-                                                <b>FARE : {fare}/-</b>
+                                            <button to="#" className='btn btn-outline-warning w-100 cardataview shadow-sm' data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => handleSubmit(data)}>
+                                                <div className='row g-0 p-0'>
+                                                    <div className='col-lg-12 col-md-12 col-sm-12 col-12 pt-2'>
+                                                        <b>{data.make.toUpperCase()} {data.model.toUpperCase()}</b><br />
+                                                        {data.carroute.toUpperCase()}
+                                                    </div>
+                                                </div>
+                                                <hr className='p-0 m-1' />
+                                                <div className='row g-0 p-0'>
+                                                    <div className='col-lg-4 col-md-4 col-sm-4 col-4'>
+                                                        Seats<br />
+                                                        <h6>{data.seatsavailable}</h6>
+                                                    </div>
+                                                    <div className='col-lg-4 col-md-4 col-sm-4 col-4'>
+                                                        Departure<br />
+                                                        <h6>{data.departuretime}</h6>
+                                                    </div>
+                                                    <div className='col-lg-4 col-md-4 col-sm-4 col-4'>
+                                                        Fare<br />
+                                                        <h6>{data.fare}/-</h6>
+                                                    </div>
+                                                </div>
                                             </button>
+
+                                            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div className="modal-dialog modal-dialog-centered">
+                                                    <div className="modal-content rounded-0 ">
+                                                        <div className="modal-header p-0">
+                                                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>CONFIRM BOOKING DETAILS</label>
+                                                        </div>
+                                                        <div className="modal-body">
+                                                            <PaymentPage />
+                                                            <button type="button" className="btn w-100 mt-2 mb-0 pb-0" data-bs-dismiss="modal">CANCEL</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))
                                 ) : (
-                                    <div className='d-flex justify-content-center'>
+                                    <div className='d-flex justify-content-center p-5'>
                                         <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                     </div>
-
                                 )}
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <br />

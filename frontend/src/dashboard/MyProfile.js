@@ -80,8 +80,8 @@ function MyProfile() {
       <ToastContainer />
       <div className='container-fluid g-0 mt-5'>
         <div className='row justify-content-center'>
-          <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-5'>
-            <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
+          <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
+            <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
               <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>DRIVER PROFILE</label>
               <div className="card-body">
                 <select className='w-100 d-input pb-2 mb-2' name='registration' value={data.registration} onChange={onChange}>

@@ -197,10 +197,11 @@ appRoutes.post("/saveticket", async (req, res) => {
             paymentId,
         });
         await ticketData.save();
-        res.status(200).json({ message: "ticket saved successfully" });
+        res.status(200).json({ message: "Ticket saved successfully" });
     } catch (error) {
-        res.status(400).json({ message: "internal server error", error });
-    };
+        console.error('Error saving ticket:', error); // Log the error for debugging
+        res.status(500).json({ message: "Internal server error", error });
+    }
 });
 
 
@@ -456,6 +457,15 @@ appRoutes.get("/allroutedata", async (req, res) => {
         res.send(response);
     } catch (error) {
         res.status(400).json({ message: "Something went wrong!" })
+    }
+});
+
+appRoutes.get("/onlinevehicle",async (req, res) => {
+    try {
+        const response = await onlinevehicle.find({});
+        res.send(response);
+    }catch(error){
+        res.status(400).json({ message: "Something went wrong!" });
     }
 });
 

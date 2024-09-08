@@ -58,7 +58,7 @@ function DriverPanel() {
                     </div>
                 </div>
                 <div className='row justify-content-center mb-5'>
-                    <div className='col-lg-4 col-md-5 col-sm-6 col-9'>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10'>
                         <label className='label-2 mt-4 rounded-0'>BOOKINGS ON {new Date().toDateString().toUpperCase()}</label>
                         {bookingData.length > 0 ? (
                             bookingData.map((data) => (

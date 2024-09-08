@@ -124,7 +124,7 @@ html {
     border: none;
     border-bottom: 1px solid orange;
     border-radius: 0px;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
 }
 
 .register-link {
@@ -236,4 +236,16 @@ html {
 {
     border: none;
     border-bottom: 1px solid orange;
+}
+.label-tag
+{
+    background-color: orange;
+    color: white;
+    padding: 2px;
+    font-weight: 600;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-top: 3px;
+    width: 50px;
+    text-align: center;
 }

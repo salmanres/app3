@@ -32,7 +32,7 @@ function BookingForm() {
         setLoader(true);
         setTimeout(() => {
             dispatch(newticket({ pickup: pickup, drop: drop, seats: seats, date: date }));
-            navigate("/carselect");
+            navigate("/home/carselect");
             setLoader(false);
         }, 700);
     }

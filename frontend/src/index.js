@@ -47,20 +47,21 @@ root.render(
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<MainPage />}>
-              <Route path='' element={<LoginPage />} />
-              <Route path='/home' element={<LandingPage />} />
-              <Route path='/register' element={<RegisterPage />} />
-              <Route path='/carselect' element={<CarSelect />} />
-              <Route path='/ticket' element={<TicketPage />} />
-              <Route path='/payment' element={<PaymentPage />} />
-              <Route path='/myticket' element={<MyTicket />} />
-              <Route path='/history' element={<Myhistory />} />
-              <Route path='/modifyticket/:id' element={<ModifyTicket />} />
-              <Route path='/routelist' element={<RouteList />} />
-              <Route path='/emergency' element={<Emergency />} />
+            <Route path='/' element={<LoginPage />} />
+            <Route path='/home' element={<MainPage />}>
+              <Route path='' element={<LandingPage />} />
+              <Route path='register' element={<RegisterPage />} />
+              <Route path='carselect' element={<CarSelect />} />
+              <Route path='ticket' element={<TicketPage />} />
+              <Route path='payment' element={<PaymentPage />} />
+              <Route path='myticket' element={<MyTicket />} />
+              <Route path='history' element={<Myhistory />} />
+              <Route path='modifyticket/:id' element={<ModifyTicket />} />
+              <Route path='routelist' element={<RouteList />} />
+              <Route path='emergency' element={<Emergency />} />
               <Route path='*' element={<ErrorPage />} />
             </Route>
+            <Route path='*' element={<ErrorPage />} />
             <Route path='admin' element={<AdminPage />}>
               <Route path='' element={<AdminMenu />} />
               <Route path='addnewcar' element={<AddNewCar />} />

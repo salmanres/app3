@@ -38,10 +38,10 @@ function Navbar() {
                 <div className="offcanvas-body">
                   <ul className='menu-list'>
                     <li><IoHome className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home")}>HOME</Link></li>
-                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/myticket")}>VIEW TICKET</Link></li>
-                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/history")}>HISTORY</Link></li>
-                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/routelist")}>ROUTE LIST</Link></li>
-                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/emergency")}>EMERGENCY</Link></li>
+                    <li><IoTicket className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home/myticket")}>VIEW TICKET</Link></li>
+                    <li><RiChatHistoryFill className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home/history")}>HISTORY</Link></li>
+                    <li><FaRoute className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home/routelist")}>ROUTE LIST</Link></li>
+                    <li><MdOutlineSecurity className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/home/emergency")}>EMERGENCY</Link></li>
                     <li><IoLogOutSharp className='menu-icon' /><Link data-bs-dismiss="offcanvas" onClick={() => handleNavigate("/")}>LOGOUT</Link></li>
                   </ul>
                 </div>

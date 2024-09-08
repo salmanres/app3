@@ -24,7 +24,7 @@ function BookingList() {
         <Fragment>
             <div className='container-fluid g-0 mt-5 mb-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-4'>
+                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-3'>
                     <label className='label-2 mt-4 rounded-0'>UPCOMING BOOKINGS</label>
                         {bookingData.length > 0 ? (
                             bookingData.map((data) => (

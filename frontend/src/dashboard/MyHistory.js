@@ -28,11 +28,11 @@ function Myhistory() {
         <Fragment>
             <div className='container fluid-0 mt-4 mb-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-11 mt-5' >
-                        <label className='label-2 shadow mb-1 mt-2'>HISTORY</label>
+                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-5' >
+                        <label className='label-2 shadow mt-3'>HISTORY</label>
                         {ticketData.length > 0 ? (
                             ticketData.map((data) => (
-                                <div key={data._id} className="card border-warning ticket-card mb-1 shadow rounded-0">
+                                <div key={data._id} className="card border-warning ticket-card shadow-sm rounded-0">
                                     {/* <div className="card-header"><b>Booking Id : </b>{data._id}</div> */}
                                     <div className="card-body">
                                         <p className="card-text border-bottom mb-0 pb-1 "><b>Booking Id : </b>{data._id}</p>

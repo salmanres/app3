@@ -41,8 +41,8 @@ function DriverProfile() {
         <Fragment>
             <div className='container-fluid g-0 mt-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-lg-4 col-md-5 col-sm-6 col-9 mt-5'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
+                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
                             <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>DRIVER PROFILE</label>
                             <div className="card-body">
                                 <div className='d-flex justify-content-center mb-3 mt-1'>

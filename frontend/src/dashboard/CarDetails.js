@@ -41,8 +41,8 @@ function CarDetails() {
         <Fragment>
             <div className='container-fluid g-0 mt-5 '>
                 <div className='row justify-content-center '>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-5 '>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
+                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4 '>
+                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
                             <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>CAR DETAILS</label>
                             <div className="card-body">
                                 <p className='card-text mb-0 border-bottom pb-1'><b>Id : </b>{carData._id}</p>

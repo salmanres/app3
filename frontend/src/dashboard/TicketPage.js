@@ -30,8 +30,8 @@ function TicketPage() {
                                 <h1><b>Collect your Ticket !</b></h1>
                             </div> */}
                         </div>
-                        <div className="card border-warning mt-2 ticket-card rounded-0 shadow mb-5">
-                            <div className="card-header">TICKET DETAILS</div>
+                        <div className="card border-warning mt-3 ticket-card rounded-0 shadow mb-5">
+                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>TICKET DETAILS</label>
                             <div className="card-body" id='pdf'>
                                 <p className="card-text mb-0 border-bottom pb-1"><b>Name : </b>{ticketData.username}</p>
                                 <p className="card-text mb-1 border-bottom pb-1"><b>Pickup Location : </b>{ticketData.pickup}</p>
@@ -48,8 +48,8 @@ function TicketPage() {
                                 <p className="card-text mb-1 border-bottom pb-1"><b>PaymentId : </b>{ticketData.paymentId}</p>
                                 <p className="card-text"><b>Payment Status : </b>{ticketData.paymentId ? "Paid" : "Not Completed"}</p>
                             </div>
-                            <button className='btn btn-warning w-100 button-1  rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
-                            <Link to="/home" className='btn btn-warning w-100 button-1 rounded-0 mt-2'>BACK TO HOME</Link>
+                            <button className='btn btn-warning w-100 rounded-0' onClick={createPDF} type="button">DOWNLOAD TICKET</button>
+                            <Link to="/home" className='btn w-100 rounded-0 mt-1 mb-1'>BACK TO HOME</Link>
                         </div>
                     </div>
                 </div>

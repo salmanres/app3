@@ -41,8 +41,8 @@ function AddNewCar() {
         <Fragment>
             <div className='container-fluid g-0'>
                 <div className='row justify-content-center mt-5'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-5'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
+                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
+                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
                             <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>ADD NEW VEHICLE</label>
                             <div className="card-body">
                                 <input type='text' placeholder='Registration ' className='form-control p-2 d-input mb-2 input-box2' name='registration' value={carData.registration} onChange={handleChange} />
