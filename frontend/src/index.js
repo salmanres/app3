@@ -48,9 +48,10 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<LoginPage />} />
+            <Route path='register' element={<RegisterPage />} />
             <Route path='/home' element={<MainPage />}>
               <Route path='' element={<LandingPage />} />
-              <Route path='register' element={<RegisterPage />} />
+              {/* <Route path='register' element={<RegisterPage />} /> */}
               <Route path='carselect' element={<CarSelect />} />
               <Route path='ticket' element={<TicketPage />} />
               <Route path='payment' element={<PaymentPage />} />

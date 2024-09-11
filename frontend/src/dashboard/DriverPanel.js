@@ -59,10 +59,10 @@ function DriverPanel() {
                 </div>
                 <div className='row justify-content-center mb-5'>
                     <div className='col-lg-4 col-md-5 col-sm-6 col-10'>
-                        <label className='label-2 mt-4 rounded-0'>BOOKINGS ON {new Date().toDateString().toUpperCase()}</label>
+                        <label className='label-2 mt-4 rounded-bottom-0'>BOOKINGS ON {new Date().toDateString().toUpperCase()}</label>
                         {bookingData.length > 0 ? (
                             bookingData.map((data) => (
-                                <div key={data._id} className="card border-warning ticket-card mb-1 rounded-0">
+                                <div key={data._id} className="card ticket-card mb-1 rounded-top-0 shadow-sm">
                                     <div className="card-body">
                                         <p className="card-text border-bottom mb-0 pb-1 "><b>Booking Id : </b>{data._id}</p>
                                         <p className="card-text border-bottom mb-0 pb-1 "><b>Pickup : </b>{data.pickup}</p>

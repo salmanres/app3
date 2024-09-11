@@ -39,7 +39,7 @@ function BlockDriver() {
         <Fragment>
             <div className='container-fluid g-0 mt-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-4 mb-5'>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4 mb-5'>
                         <input
                             type="text"
                             className='form-control rounded-0 d-input shadow-none p-2 mb-1'

@@ -41,9 +41,9 @@ function AddNewCar() {
         <Fragment>
             <div className='container-fluid g-0'>
                 <div className='row justify-content-center mt-5'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
-                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>ADD NEW VEHICLE</label>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
+                        <div className="card mb-3 shadow-sm mt-3">
+                            <label className='label-2 w-100 rounded-bottom-0'>ADD NEW VEHICLE</label>
                             <div className="card-body">
                                 <input type='text' placeholder='Registration ' className='form-control p-2 d-input mb-2 input-box2' name='registration' value={carData.registration} onChange={handleChange} />
                                 <input type='text' placeholder='Model' className='form-control p-2 mb-2 input-box2 d-input' name='model' value={carData.model} onChange={handleChange} />
@@ -52,7 +52,7 @@ function AddNewCar() {
                                 <input type='text' placeholder='Owner Name' className='form-control p-2 mb-2 input-box2 d-input' name='ownername' value={carData.ownername} onChange={handleChange} />
                                 <input type='text' placeholder='Owner Number' className='form-control p-2 mb-2 input-box2 d-input' name='ownernumber' value={carData.ownernumber} onChange={handleChange} />
                                 <input type='text' placeholder='Owner Address' className='form-control p-2 mb-2 input-box2 d-input' name='owneraddress' value={carData.owneraddress} onChange={handleChange} />
-                                <button className='btn btn-warning p-2 w-100 mt-3 button-1 rounded-0' onClick={handleSubmit}>
+                                <button className='btn btn-warning w-100 mt-3' onClick={handleSubmit}>
                                     {loader ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "ADD VEHICLE"}
                                 </button>
                             </div>

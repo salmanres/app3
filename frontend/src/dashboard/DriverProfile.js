@@ -42,8 +42,8 @@ function DriverProfile() {
             <div className='container-fluid g-0 mt-5'>
                 <div className='row justify-content-center'>
                     <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
-                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>DRIVER PROFILE</label>
+                        <div className="card mb-3 shadow-sm mt-3">
+                            <label className='label-2 w-100 rounded-bottom-0 p-2'>DRIVER PROFILE</label>
                             <div className="card-body">
                                 <div className='d-flex justify-content-center mb-3 mt-1'>
                                     <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt='profile-pic' width={70} />
@@ -55,7 +55,7 @@ function DriverProfile() {
                                 <p className='card-text mb-0 border-bottom pb-1'><b>Aadhar No : </b>{driverData.driveraadhar}</p>
                                 <p className='card-text mb-0 border-bottom pb-1'><b>Address : </b>{driverData.driveraddress}</p>
                                 <p><b>Reg Date : </b>{driverData.driverRegDate ? driverData.driverRegDate.split("T")[0] : "Not Available"}</p>
-                                <button className='btn btn-warning w-100 rounded-0' onClick={blacklistDriver} disabled={loader}>
+                                <button className='btn btn-warning w-100' onClick={blacklistDriver} disabled={loader}>
                                     {loader ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <span>{blacklisted ? "UNBLOCK DRIVER" : "BLACKLIST DRIVER"}</span>}
                                 </button>
                             </div>

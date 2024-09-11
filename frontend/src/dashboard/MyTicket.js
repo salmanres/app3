@@ -29,11 +29,11 @@ function MyTicket() {
     <Fragment>
       <div className='container fluid-0 mt-5 mb-4'>
         <div className='row justify-content-center'>
-          <div className='col-lg-5 col-md-6 col-sm-7 col-11 mt-4 ' >
-            <label className='label-2 shadow-sm rounded-0 mt-2'>ACTIVE BOOKINGS - {ticketData.length} </label>
+          <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-3 g-0 ' >
+            <label className='label-2 shadow-sm rounded-bottom-0 mt-4'>ACTIVE BOOKINGS - {ticketData.length} </label>
             {ticketData.length > 0 ? (
               ticketData.map((ticketData) => (
-                <div key={ticketData._id} className="card border-warning ticket-card mb-3 shadow-sm rounded-0">
+                <div key={ticketData._id} className="card ticket-card shadow-sm">
                   {/* <div className="card-header">{data._id}</div> */}
                   <div className="card-body">
                     <p className="card-text mb-0 border-bottom pb-1"><b>Booking Id : </b>{ticketData._id}</p>
@@ -51,7 +51,7 @@ function MyTicket() {
                     <p className="card-text mb-1 border-bottom pb-1"><b>Fare : </b>{ticketData.fare}/-</p>
                     <p className="card-text mb-1 border-bottom pb-1"><b>PaymentId : </b>{ticketData.paymentId}</p>
                     <p className="card-text"><b>Payment Status : </b>{ticketData.paymentId ? "Paid" : "Not Completed"}</p>
-                    <Link to={`/home/modifyticket/${ticketData._id}`} className='btn btn-warning w-100 rounded-0'>MODIFY BOOKING</Link>
+                    <Link to={`/home/modifyticket/${ticketData._id}`} className='btn btn-warning w-100'>MODIFY BOOKING</Link>
                   </div>
                 </div>
               ))

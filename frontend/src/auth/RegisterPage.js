@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { backendurl } from '../ServicePage';
+import { IoCarSport } from "react-icons/io5";
 
 export default function RegisterPage() {
 
@@ -34,7 +35,7 @@ export default function RegisterPage() {
             } catch (error) {
                 toast.error(error.response.data.message);
                 setLoading(false);
-            }finally{
+            } finally {
                 setLoading(false);
             }
         } else {
@@ -45,23 +46,38 @@ export default function RegisterPage() {
 
     return (
         <Fragment>
+            <div className='navbar shadow-sm'>
+                <div className='container-fluid g-0 m-0 p-0'>
+                    <div className='row g-0 w-100'>
+                        <div className='col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-center align-items-center'>
+                        </div>
+                        <div className='col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-center align-items-center'>
+                            <IoCarSport /><IoCarSport /><IoCarSport /><IoCarSport />
+                        </div>
+                        <div className='col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-center align-items-center'>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className='container-fluid g-0'>
                 <div className='row mt-5 justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-4'>
-                        <div className='col-lg-12 col-md-12 col-sm-12 col-12 ms-1 pt-3 pb-1 '>
-                            <h1><b> SignUp Here</b></h1>
-                        </div>
-                        <input type='text' className='form-control p-2 mb-2 mt-4 input-box' placeholder='Full Name' name='name' value={userData.name} onChange={handleChange} />
-                        <input type='mobile' className='form-control p-2 mb-2 input-box' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
-                        <input type='password' className='form-control p-2 mb-2 input-box' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
-                        <input type='text' className='form-control p-2 mb-2 input-box' placeholder='Confirm Password' name='confirmpassword' value={userData.confirmpassword} onChange={handleChange} />
-                        <button type='button' className='btn btn-warning p-2  w-100 button-1 shadow' onClick={handleSubmit} disabled={loading}>
-                            {loading? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "REGISTER"}
-                            </button>
-                        <div className='row mt-4 text-center'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                                <label className='m-2'>Already Registered ?</label>
-                                <Link to="/" className='register-link'>Login Here</Link>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
+                        <div className="card mb-3 shadow-sm mt-3">
+                            <label className='label-2 w-100 rounded-bottom-0'>REGISTER HERE</label>
+                            <div className="card-body">
+                                <input type='text' className='form-control p-2 mb-2 d-input' placeholder='Full Name' name='name' value={userData.name} onChange={handleChange} />
+                                <input type='mobile' className='form-control p-2 mb-2 d-input' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
+                                <input type='password' className='form-control p-2 mb-2 d-input' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
+                                <input type='text' className='form-control p-2 mb-2 d-input' placeholder='Confirm Password' name='confirmpassword' value={userData.confirmpassword} onChange={handleChange} />
+                                <button type='button' className='btn btn-warning w-100 mt-3' onClick={handleSubmit} disabled={loading}>
+                                    {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "REGISTER"}
+                                </button>
+                                <div className='row mt-3 text-center'>
+                                    <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
+                                        <label className='m-2'>Already Registered ?</label>
+                                        <Link to="/" className='register-link'>Login Here</Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

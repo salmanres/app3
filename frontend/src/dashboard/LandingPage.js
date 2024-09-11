@@ -25,11 +25,6 @@ function LandingPage() {
 
             <BookingForm />
 
-            <div className='row'>
-              <div className='col-lg-12 col-md-12 col-sm-12 col-12 text-center'>
-                <label className='disclaimer'><b>Note : </b> All routes are fixed. Choose pickup and drop locations according route list !</label>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <Fragment>
-      <div className='navbar shadow'>
+      <div className='navbar shadow-sm'>
         <div className='container-fluid g-0 m-0 p-0'>
           <div className='row g-0 w-100'>
             <div className='col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-start align-items-center ps-3 '>

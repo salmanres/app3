@@ -41,9 +41,9 @@ function BookingForm() {
         <Fragment>
             <div className='container-fluid g-0'>
                 <div className='row'>
-                    <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
-                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>SELECT PICKUP & DROP</label>
+                    <div className='col-lg-12 col-md-12 col-sm-12 col-12 g-0'>
+                        <div className="card mb-3 shadow-sm mt-2">
+                            <label className='label-2 border-warning w-100 rounded-bottom-0'>SELECT PICKUP & DROP</label>
                             <div className="card-body">
                                 <input
                                     className='form-control p-2 mb-2 d-input'
@@ -79,9 +79,12 @@ function BookingForm() {
                                         <input type='date' className='form-control p-2 d-input' placeholder='Date' value={date} onChange={(e) => setDate(e.target.value)} />
                                     </div>
                                 </div>
-                                <button className='btn btn-warning p-2 w-100 rounded-0 mt-3' onClick={handleSubmit} disabled={loader}>
+                                <button className='btn btn-warning p-2 w-100 mt-3' onClick={handleSubmit} disabled={loader}>
                                     {loader ? <span className='spinner-border spinner-border-sm me-2' role='status' aria-hidden='true'></span> : "CONTINUE"}
                                 </button>
+
+                                <label className='disclaimer mt-3'><b>Note : </b> All routes are fixed. Choose pickup and drop locations according route list !</label>
+
                             </div>
                         </div>
                         {/* <div className='row'>

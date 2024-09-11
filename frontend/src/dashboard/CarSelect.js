@@ -47,9 +47,9 @@ function CarSelect() {
         <Fragment>
             <div className='container-fluid g-0'>
                 <div className='row mt-5 justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
-                        <div className="card border-warning mb-5 rounded-0 shadow-sm mt-3 g-0 ">
-                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>SELECT YOUR RIDE</label>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
+                        <div className="card mb-5 shadow-sm mt-3 g-0 ">
+                            <label className='label-2 w-100 rounded-bottom-0'>SELECT YOUR RIDE</label>
                             <div className="card-body g-0 p-0">
                                 {carData.length > 0 ? (
                                     carData.map((data) => (
@@ -80,13 +80,13 @@ function CarSelect() {
 
                                             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div className="modal-dialog modal-dialog-centered">
-                                                    <div className="modal-content rounded-0 ">
+                                                    <div className="modal-content m-4 shadow-sm">
                                                         <div className="modal-header p-0">
-                                                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>CONFIRM BOOKING DETAILS</label>
+                                                            <label className='label-2 w-100 rounded-bottom-0 rounded-top'>CONFIRM BOOKING DETAILS</label>
                                                         </div>
                                                         <div className="modal-body">
                                                             <PaymentPage />
-                                                            <button type="button" className="btn w-100 mt-2 mb-0 pb-0" data-bs-dismiss="modal">CANCEL</button>
+                                                            <button type="button" className="btn w-100 mt-2 mb-0" data-bs-dismiss="modal">CANCEL</button>
                                                         </div>
                                                     </div>
                                                 </div>

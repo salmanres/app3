@@ -80,9 +80,9 @@ function MyProfile() {
       <ToastContainer />
       <div className='container-fluid g-0 mt-5'>
         <div className='row justify-content-center'>
-          <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-4'>
-            <div className="card border-warning mb-3 rounded-0 shadow-sm mt-3">
-              <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>DRIVER PROFILE</label>
+          <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-4'>
+            <div className="card mb-3 shadow-sm mt-3">
+              <label className='label-2 w-100 rounded-bottom-0 '>DRIVER PROFILE</label>
               <div className="card-body">
                 <select className='w-100 d-input pb-2 mb-2' name='registration' value={data.registration} onChange={onChange}>
                   <option value="">Select Car</option>
@@ -122,8 +122,8 @@ function MyProfile() {
                     <input type="number" className='w-100 d-input pb-2 mb-2' placeholder="Fare" name='fare' value={data.fare} onChange={onChange} />
                   </div>
                 </div>
-                <button className='btn btn-warning rounded-0 mt-2 w-100' onClick={handleSubmit} disabled={loader}>
-                  {loader ? 'Loading...' : 'Submit'}
+                <button className='btn btn-warning mt-2 w-100' onClick={handleSubmit} disabled={loader}>
+                  {loader ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "UPDATE"}
                 </button>
               </div>
             </div>

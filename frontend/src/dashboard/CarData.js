@@ -51,7 +51,7 @@ function CarData() {
               value={keyword}
               onChange={handleChange}
             />
-            <button className='btn btn-warning rounded-0 w-100' onClick={getCarData}>
+            <button className='btn btn-warning w-100' onClick={getCarData}>
               {loader ? <span className='spinner-border spinner-border-sm'></span> : "SEARCH VEHICLE"}
             </button>
             {carData.length > 0 ? (

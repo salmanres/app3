@@ -50,7 +50,7 @@ function LoginPage() {
 
     return (
         <Fragment>
-            <div className='navbar shadow'>
+            <div className='navbar shadow-sm'>
                 <div className='container-fluid g-0 m-0 p-0'>
                     <div className='row g-0 w-100'>
                         <div className='col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-center align-items-center'>
@@ -64,10 +64,10 @@ function LoginPage() {
                 </div>
             </div>
             <div className='container-fluid g-0'>
-                <div className='row justify-content-center mt-5'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-9 mt-5'>
-                        <div className="card border-warning mb-3 rounded-0 shadow-sm mt-2">
-                            <label className='label-2 border-warning w-100 rounded-0 shadow-sm p-2'>LOGIN HERE</label>
+                <div className='row justify-content-center card-5'>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-5'>
+                        <div className="card mb-3 shadow-sm mt-2">
+                            <label className='label-2 border-warning w-100 rounded-bottom-0'>LOGIN HERE</label>
                             <div className="card-body">
                                 <input type='mobile' className='form-control p-2 d-input' placeholder='Mobile Number' name='mobile' value={userData.mobile} onChange={handleChange} />
                                 <input type='password' className='form-control p-2 d-input' placeholder='Password' name='password' value={userData.password} onChange={handleChange} />
@@ -77,14 +77,10 @@ function LoginPage() {
                                         Remember me
                                     </label>
                                 </div>
-                                <button type='button' className='btn btn-warning p-2 w-100 rounded-0 mt-3' onClick={handleLogin} disabled={loading}>
+                                <button type='button' className='btn btn-warning p-2 w-100 mt-3' onClick={handleLogin} disabled={loading}>
                                     {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "LOGIN"}
                                 </button>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
-                                <div className='row mt-2 text-center'>
+                                <div className='row mt-4 text-center'>
                                     <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
                                         <label className=''>Not Registered ? </label>
                                         <Link to="register" className='register-link'> SignUp</Link>
@@ -97,11 +93,28 @@ function LoginPage() {
                                 </div>
                             </div>
                         </div>
+                        <div className='row'>
+                            <div className='col-lg-12 col-md-12 col-sm-12 col-12'>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <Link className='text-decoration-none text-warning' to="/driver" >driver</Link><br />
-            <Link className='text-decoration-none text-warning' to="/admin" >admin</Link>
+            <div className='container-fluid g-0'>
+                <div className='row justify-content-center'>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 mt-3 text-center'>
+                        <Link className='extra-link shadow-sm' to="/admin" >- ADMIN MODULE -</Link>
+                    </div>
+                </div>
+            </div>
+            <div className='container-fluid g-0 mt-4'>
+                <div className='row justify-content-center'>
+                    <div className='col-lg-4 col-md-5 col-sm-6 col-10 text-center'>
+                        <Link className='extra-link shadow-sm' to="/driver" >- DRIVER MODULE -</Link><br />
+                    </div>
+                </div>
+            </div>
             <ToastContainer />
         </Fragment>
     )

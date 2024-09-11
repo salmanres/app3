@@ -127,7 +127,7 @@ function PaymentPage() {
             <p className="card-text mb-1 border-bottom pb-1"><b>Route Details : </b>{ticketData.route}</p>
             <p className="card-text mb-1 border-bottom pb-1"><b>Departure Time : </b>{ticketData.departuretime}</p>
             <p className="card-text mb-1"><b>Fare : </b>{ticketData.fare}/-</p>
-            <button className='btn btn-warning w-100 rounded-0 button-1 mt-3' onClick={handlePayment}>
+            <button className='btn btn-warning w-100 mt-3' onClick={handlePayment}>
                 {loader ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : "PROCEED TO PAY"}
             </button>
             <ToastContainer />

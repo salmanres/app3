@@ -28,7 +28,7 @@ function Myhistory() {
         <Fragment>
             <div className='container fluid-0 mt-4 mb-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-5' >
+                    <div className='col-lg-5 col-md-6 col-sm-7 col-10 mt-5 g-0' >
                         <label className='label-2 shadow mt-3'>HISTORY</label>
                         {ticketData.length > 0 ? (
                             ticketData.map((data) => (
